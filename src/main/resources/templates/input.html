@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Input</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+	<link rel="stylesheet" th:href="@{/css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css}"
+		href="../../css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css" />	
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/jquery-1.9.1.js}"></script>
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/jquery-ui-1.10.3.custom.js}"></script>
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/script.js}"></script>			
+</head>
+
+<body>
+
+	<form method="post" action="#" th:action="@{/input/handle-button-ok}">
+		<div class="page">
+			<div id="title" class="title"><h2>Hello World</h2></div>
+			<div id="subtitle" class="subtitle"><h3>Page: Input</h3></div>
+			<div id="content" class="content">
+				<div class="contentElement">
+					<div class="textInput">Name *</div>
+					<div class="input"><input type="text" id="name" name="name"/></div>
+					<div class="description">Type your name here</div>
+				</div>
+				
+			</div>
+			<div id="buttons" class="buttons">
+				<input type="submit" id="ok" name="ok" value="OK" title="Go to next page"/>
+			</div>
+		</div>
+	</form>	
+
+</body>
+</html>
