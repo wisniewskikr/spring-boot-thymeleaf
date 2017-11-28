@@ -62,6 +62,17 @@
 	border-radius: .5em;
 }
 
+.buttons a {
+	color: white;
+	border: 1px solid #5F5F5F;
+	background: #5F5F5F;	
+	padding: 7px 9px 7px 9px;
+	border-radius: .5em;
+	text-decoration: none;
+	font: 13.3333px Arial;
+	font-weight: bold;
+}
+
 .error {
 	color: red;
 	float: right;
