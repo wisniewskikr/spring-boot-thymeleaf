@@ -5,14 +5,14 @@ import java.util.Properties;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NameService {
+public class UidService {
 	
 	
 	private static final String NAME_PROP = "name";
 	private Properties props;
 
 	
-	public NameService(){		
+	public UidService(){		
 		props = System.getProperties();
 	}
 
