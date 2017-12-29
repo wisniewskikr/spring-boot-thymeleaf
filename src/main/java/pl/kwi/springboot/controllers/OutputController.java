@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import pl.kwi.springboot.commands.OutputCommand;
+import pl.kwi.springboot.entities.UserEntity;
 import pl.kwi.springboot.services.LdapService;
 import pl.kwi.springboot.services.UidService;
 
@@ -25,8 +26,8 @@ public class OutputController{
 	@RequestMapping
 	public String displayPage(@ModelAttribute("command")OutputCommand command){
 		String uid = uidService.load();
-		String name = ldapService.load(uid);
-		command.setName(name);
+		UserEntity user = ldapService.load(uid);
+		command.setName(user.getName());
 		return "output";
 	}
 	

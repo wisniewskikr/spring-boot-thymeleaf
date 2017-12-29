@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import pl.kwi.springboot.commands.InputCommand;
+import pl.kwi.springboot.entities.UserEntity;
 import pl.kwi.springboot.services.LdapService;
 import pl.kwi.springboot.services.UidService;
 
@@ -27,7 +28,8 @@ public class InputController {
 	
 	@RequestMapping(value="/handle-button-ok", method=RequestMethod.POST)
 	public String handleButtonOk(@ModelAttribute("command")InputCommand command) {
-		String uid = ldapService.save(command.getName());
+		String uid = ldapService.generateUid();
+		ldapService.save(new UserEntity(uid, command.getName()));
 		uidService.save(uid);
 		return "redirect:/output";
 	}

@@ -1,5 +1,8 @@
 package pl.kwi.springboot.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
 import javax.naming.directory.Attribute;
@@ -13,6 +16,8 @@ import javax.naming.ldap.LdapContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import pl.kwi.springboot.entities.UserEntity;
+
 @Service
 public class LdapService {
 	
@@ -22,16 +27,16 @@ public class LdapService {
 	@Autowired
 	private LdapContext ldapContext;
 	
-	public String save(String name) {
+	public void save(UserEntity user) {
 		
-		String uid = name.toLowerCase();
+		String uid = user.getId();
 		
         // entry's DN 
 		String entryDN = String.format("uid=%s,ou=People,dc=maxcrc,dc=com", uid);  
 	
 	    // entry's attributes  	
-		Attribute cn = new BasicAttribute("cn", name); 
-		Attribute sn = new BasicAttribute("sn", name);  
+		Attribute cn = new BasicAttribute("cn", user.getName()); 
+		Attribute sn = new BasicAttribute("sn", user.getName());  
 	    Attribute oc = new BasicAttribute("objectClass");  
 	    oc.add("top");  
 	    oc.add("person");  
@@ -50,13 +55,11 @@ public class LdapService {
 	        System.err.println("save: error adding entry." + e);  
 	    }
 	    
-	    return uid;
-	    
 	}
 	
-	public String load(String uid){
+	public UserEntity load(String uid){
 		
-		String result = null;
+		UserEntity user = null;
 		
 		//filter
 		String filter = String.format("(uid=%s)", uid);
@@ -69,10 +72,44 @@ public class LdapService {
 	    
 	    try {
 			NamingEnumeration<SearchResult> results = ldapContext.search(LDAP_DN, filter, sc);
+			String name = null;
 			while (results.hasMore()) {
 			      SearchResult sr = results.next();
 			      Attributes attrs = sr.getAttributes();
-			      result = (String)attrs.get("cn").get();
+			      name = (String)attrs.get("cn").get();
+			      user = new UserEntity(uid, name);
+			    }
+		} catch (NamingException e) {
+			System.err.println("load: error reading entry." + e);
+		}
+	    
+	    return user;
+	
+	}
+	
+	public List<UserEntity> loadAll(){
+		
+		List<UserEntity>  result = new ArrayList<UserEntity>();
+		String name;
+		String uid;
+		
+		//filter
+		String filter = "(uid=*)";
+		
+		// search controls
+		SearchControls sc = new SearchControls();
+	    String[] attributeFilter = { "uid", "cn" };
+	    sc.setReturningAttributes(attributeFilter);
+	    sc.setSearchScope(SearchControls.SUBTREE_SCOPE);
+	    
+	    try {
+			NamingEnumeration<SearchResult> results = ldapContext.search(LDAP_DN, filter, sc);
+			while (results.hasMore()) {
+			      SearchResult sr = results.next();
+			      Attributes attrs = sr.getAttributes();
+			      uid = (String)attrs.get("uid").get();
+			      name = (String)attrs.get("cn").get();			      
+			      result.add(new UserEntity(uid, name));
 			    }
 		} catch (NamingException e) {
 			System.err.println("load: error reading entry." + e);
@@ -80,6 +117,17 @@ public class LdapService {
 	    
 	    return result;
 	
+	}
+	
+	public String generateUid() {
+		List<UserEntity> users = loadAll();
+		if (users.isEmpty()) {
+			return "1";
+		}
+		
+		UserEntity user = users.get(users.size() - 1);
+		long currentId = Long.valueOf(user.getId());
+		return String.valueOf(++currentId);
 	}
 
 }
