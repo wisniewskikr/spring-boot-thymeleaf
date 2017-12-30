@@ -3,7 +3,7 @@ package pl.kwi.springboot.entities;
 public class UserEntity {
 	
 	
-	private String id;
+	private Long id;
 	
 	private String name;
 	
@@ -14,16 +14,16 @@ public class UserEntity {
 		this.name = name;
 	}	
 	
-	public UserEntity(String id, String name) {
+	public UserEntity(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

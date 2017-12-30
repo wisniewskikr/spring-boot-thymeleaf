@@ -29,7 +29,7 @@ public class LdapService {
 	
 	public void save(UserEntity user) {
 		
-		String uid = user.getId();
+		String uid = String.valueOf(user.getId());
 		
         // entry's DN 
 		String entryDN = String.format("uid=%s,ou=People,dc=maxcrc,dc=com", uid);  
@@ -57,12 +57,12 @@ public class LdapService {
 	    
 	}
 	
-	public UserEntity load(String uid){
+	public UserEntity load(Long uid){
 		
 		UserEntity user = null;
 		
 		//filter
-		String filter = String.format("(uid=%s)", uid);
+		String filter = String.format("(uid=%s)", String.valueOf(uid));
 		
 		// search controls
 		SearchControls sc = new SearchControls();
@@ -91,7 +91,7 @@ public class LdapService {
 		
 		List<UserEntity>  result = new ArrayList<UserEntity>();
 		String name;
-		String uid;
+		Long uid;
 		
 		//filter
 		String filter = "(uid=*)";
@@ -107,7 +107,7 @@ public class LdapService {
 			while (results.hasMore()) {
 			      SearchResult sr = results.next();
 			      Attributes attrs = sr.getAttributes();
-			      uid = (String)attrs.get("uid").get();
+			      uid = Long.valueOf((String)attrs.get("uid").get());
 			      name = (String)attrs.get("cn").get();			      
 			      result.add(new UserEntity(uid, name));
 			    }
@@ -119,15 +119,17 @@ public class LdapService {
 	
 	}
 	
-	public String generateUid() {
+	public Long generateUid() {
 		List<UserEntity> users = loadAll();
 		if (users.isEmpty()) {
-			return "1";
+			return 1L;
 		}
 		
 		UserEntity user = users.get(users.size() - 1);
-		long currentId = Long.valueOf(user.getId());
-		return String.valueOf(++currentId);
+		System.out.println("id: " + user.getId());
+		System.out.println("name: " + user.getName());
+		long currentId = user.getId();
+		return ++currentId;
 	}
 
 }

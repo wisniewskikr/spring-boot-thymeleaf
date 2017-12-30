@@ -28,9 +28,9 @@ public class InputController {
 	
 	@RequestMapping(value="/handle-button-ok", method=RequestMethod.POST)
 	public String handleButtonOk(@ModelAttribute("command")InputCommand command) {
-		String uid = ldapService.generateUid();
+		Long uid = ldapService.generateUid();
 		ldapService.save(new UserEntity(uid, command.getName()));
-		uidService.save(uid);
+		uidService.save(String.valueOf(uid));
 		return "redirect:/output";
 	}
 
