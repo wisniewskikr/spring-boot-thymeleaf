@@ -26,7 +26,7 @@ public class OutputController{
 	@RequestMapping
 	public String displayPage(@ModelAttribute("command")OutputCommand command){
 		Long uid = Long.valueOf(uidService.load());
-		UserEntity user = ldapService.load(uid);
+		UserEntity user = ldapService.readUser(uid);
 		command.setName(user.getName());
 		return "output";
 	}

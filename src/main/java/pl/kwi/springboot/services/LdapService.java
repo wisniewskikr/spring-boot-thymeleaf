@@ -27,7 +27,7 @@ public class LdapService {
 	@Autowired
 	private LdapContext ldapContext;
 	
-	public void save(UserEntity user) {
+	public void createUser(UserEntity user) {
 		
 		String uid = String.valueOf(user.getId());
 		
@@ -57,7 +57,7 @@ public class LdapService {
 	    
 	}
 	
-	public UserEntity load(Long uid){
+	public UserEntity readUser(Long uid){
 		
 		UserEntity user = null;
 		
@@ -87,7 +87,7 @@ public class LdapService {
 	
 	}
 	
-	public List<UserEntity> loadAll(){
+	public List<UserEntity> getUserList(){
 		
 		List<UserEntity>  result = new ArrayList<UserEntity>();
 		String name;
@@ -120,14 +120,12 @@ public class LdapService {
 	}
 	
 	public Long generateUid() {
-		List<UserEntity> users = loadAll();
+		List<UserEntity> users = getUserList();
 		if (users.isEmpty()) {
 			return 1L;
 		}
 		
 		UserEntity user = users.get(users.size() - 1);
-		System.out.println("id: " + user.getId());
-		System.out.println("name: " + user.getName());
 		long currentId = user.getId();
 		return ++currentId;
 	}
