@@ -18,3 +18,5 @@ Application.java
 
 Link to main UI:
 http://localhost:8080
+Example user:
+user / password

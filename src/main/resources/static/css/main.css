@@ -70,3 +70,19 @@
 .image {
 	text-align: center;
 }
+
+.header {
+	padding-bottom: 20px;
+}
+
+.header div {
+	float: left;
+}
+
+.header input {
+	float: right;
+}
+
+.alert-error {
+	color: red;
+}
