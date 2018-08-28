@@ -12,18 +12,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()
-                .authorizeRequests()
-					.antMatchers("/").permitAll()
-					.antMatchers("/input", "/output").hasAnyRole("USER")
-					.anyRequest().authenticated()
-                .and()
-                .formLogin()
-					.loginPage("/login")
-					.permitAll()
-					.and()
-                .logout()
-					.permitAll();
+        http
+        	.authorizeRequests()
+        		.anyRequest().authenticated()
+				.antMatchers("/").permitAll()
+				.antMatchers("/input", "/output").hasAnyRole("USER")				
+            .and()
+            .formLogin()
+				.loginPage("/login")
+				.permitAll()
+			.and()
+            .logout()
+				.permitAll();
+        
     }
 
     @Autowired
@@ -31,5 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER");
+        
     }
+    
 }
