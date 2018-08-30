@@ -1,12 +1,11 @@
 package pl.kwi.springboot.providers;
 
-import java.util.Collections;
-
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,7 +18,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String password = auth.getCredentials().toString();
  
         if ("user".equals(username) && "password".equals(password)) {
-            return new UsernamePasswordAuthenticationToken(username, password, Collections.emptyList());
+            return new UsernamePasswordAuthenticationToken(username, password, AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
         } else {
             throw new BadCredentialsException("External system authentication failed");
         }
