@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import pl.kwi.springboot.handlers.CustomAuthenticationSuccessHandler;
 import pl.kwi.springboot.providers.CustomAuthenticationProvider;
 
 @Configuration
@@ -13,6 +14,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
     CustomAuthenticationProvider customAuthProvider;
+	
+	@Autowired
+	CustomAuthenticationSuccessHandler customSuccessHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -23,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .formLogin()
 				.loginPage("/login")
+				.successHandler(customSuccessHandler)
 				.permitAll()
 			.and()
             .logout()
