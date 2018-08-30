@@ -1,5 +1,7 @@
 package pl.kwi.springboot.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -7,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 	
 	@RequestMapping(value="/login")
-	public String login() {
+	public String login(HttpServletRequest request) {
 		return "login";
 	}
 
