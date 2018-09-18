@@ -22,7 +22,7 @@
 			<div id="content" class="content">
 				<div class="contentElement">
 					
-					<div th:if="${param.error}" class="alert-error">Invalid username or password.</div>
+					<div th:if="${errorMessage}" class="alert-error" th:text="${errorMessage}">Error Message</div>
                     <div th:if="${param.logout}" class="alert-info">You have been logged out.</div>					
 					<div class="input"><input type="text" id="username" name="username" placeholder="User Name" required="true" autofocus="true"/></div>
 					<div class="input"><input type="password" id="password" name="password" placeholder="Password" required="true"/></div>

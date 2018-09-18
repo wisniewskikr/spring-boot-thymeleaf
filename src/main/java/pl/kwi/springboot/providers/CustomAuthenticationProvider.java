@@ -3,6 +3,7 @@ package pl.kwi.springboot.providers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -24,7 +25,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String password = auth.getCredentials().toString();
         
         if (loginAttemptService.isBlocked(username)) {
-        	throw new RuntimeException("blocked");
+        	throw new LockedException("User is blocked");
         }
  
         if ("user".equals(username) && "password".equals(password)) {

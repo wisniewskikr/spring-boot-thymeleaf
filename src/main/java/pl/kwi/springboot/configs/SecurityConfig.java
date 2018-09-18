@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import pl.kwi.springboot.handlers.CustomAuthenticationFailureHandler;
 import pl.kwi.springboot.handlers.CustomAuthenticationSuccessHandler;
 import pl.kwi.springboot.providers.CustomAuthenticationProvider;
 
@@ -17,17 +18,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	CustomAuthenticationSuccessHandler customSuccessHandler;
+	
+	@Autowired
+	CustomAuthenticationFailureHandler customFailureHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http
         	.authorizeRequests()
-        		.anyRequest().authenticated()								
+        		.antMatchers("/login").permitAll()
+        		.anyRequest().authenticated()	        		
             .and()
             .formLogin()
 				.loginPage("/login")
 				.successHandler(customSuccessHandler)
+				.failureHandler(customFailureHandler)
 				.permitAll()
 			.and()
             .logout()
