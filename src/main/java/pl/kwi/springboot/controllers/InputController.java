@@ -1,6 +1,7 @@
 package pl.kwi.springboot.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +14,15 @@ import pl.kwi.springboot.services.NameService;
 @RequestMapping(value="/input")
 public class InputController {
 	
+	@Value("${name}")
+    private String name;
+	
 	@Autowired
 	private NameService nameService;
 
 	@RequestMapping
-	public String displayPage() {
+	public String displayPage(@ModelAttribute("command")InputCommand command) {
+		command.setName(name);
 		return "input";
 	}
 	

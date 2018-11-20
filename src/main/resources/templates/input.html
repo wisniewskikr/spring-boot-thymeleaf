@@ -15,14 +15,14 @@
 
 <body>
 
-	<form method="post" action="#" th:action="@{/input/handle-button-ok}">
+	<form method="post" action="#" th:action="@{/input/handle-button-ok}" th:object="${command}">
 		<div class="page">
 			<div id="title" class="title"><h2>Hello World</h2></div>
 			<div id="subtitle" class="subtitle"><h3>Page: Input</h3></div>
 			<div id="content" class="content">
 				<div class="contentElement">
 					<div class="textInput">Name *</div>
-					<div class="input"><input type="text" id="name" name="name"/></div>
+					<div class="input"><input type="text" id="name" name="name" th:value="*{name}"/></div>
 					<div class="description">Type your name here</div>
 				</div>
 				
