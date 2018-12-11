@@ -17,13 +17,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         	.authorizeRequests()
         		.anyRequest().authenticated()				
             .and()
-            .formLogin()
-				.loginPage("/login")
-				.defaultSuccessUrl("/input", true)
-				.permitAll()
+	            .formLogin()
+					.loginPage("/login")
+					.defaultSuccessUrl("/input", true)
+					.permitAll()
 			.and()
-            .logout()
-				.permitAll();
+	            .logout();
         
     }
 
