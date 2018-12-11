@@ -7,6 +7,7 @@
 	<artifactId>spring-boot-thymeleaf</artifactId>	
 	<version>0.0.1</version>
 	<packaging>war</packaging>
+	<name>app</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -54,6 +55,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<warName>${project.name}</warName>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
