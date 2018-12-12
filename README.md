@@ -1,5 +1,5 @@
-SPRING BOOT + THYMELEAF (HELLO WORLD)
-=====================================
+SPRING BOOT + THYMELEAF (HELLO WORLD) + REMEMBER ME
+===================================================
 
 
 DESCRIPTION
@@ -8,6 +8,9 @@ DESCRIPTION
 This is example project of usage Spring Boot + Thymeleaf.
 This project displays 'Hello World' message for user.
 User name is stored as system property.
+
+Checkbox "Remember Me" allows user to be logged in
+even if they close browser and open it again.
   
 
 USAGE
