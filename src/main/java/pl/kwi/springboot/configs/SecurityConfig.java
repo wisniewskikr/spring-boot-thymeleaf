@@ -9,8 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
-    @Override
+
+	@Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http
@@ -23,7 +23,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 					.defaultSuccessUrl("/input", true)
 					.permitAll()
 			.and()
-	            .logout();
+	            .logout()
+	        .and().rememberMe()
+	        	.key("rem-me-key");
         
     }
 
