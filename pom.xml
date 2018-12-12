@@ -28,6 +28,7 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         
+        <!-- Spring WebMVC -->
         <dependency>
  			<groupId>org.springframework</groupId>
   			<artifactId>spring-webmvc</artifactId>
