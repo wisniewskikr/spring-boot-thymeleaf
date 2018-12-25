@@ -20,13 +20,27 @@
 		<java.version>1.8</java.version>
 	</properties>
 
-	<dependencies>
+	<dependencies>			
     	
 		<!-- Spring Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        
+        <!-- Spring Security OAuth2 -->
+		<dependency>
+		    <groupId>org.springframework.security.oauth</groupId>
+		    <artifactId>spring-security-oauth2</artifactId>
+		    <version>2.1.1.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.security.oauth.boot</groupId>
+		    <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+		    <version>2.1.1.RELEASE</version>
+		</dependency>
+			
         
         <!-- Spring WebMVC -->
         <dependency>
@@ -37,7 +51,7 @@
 		<!-- Thymeleaf dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>			
 		</dependency>
 		
 		<!-- Remove Tomcat embedded dependencies -->
