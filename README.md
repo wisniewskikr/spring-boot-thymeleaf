@@ -19,7 +19,7 @@ To run project run class:
 Application.java
 
 Link to main UI:
-http://localhost:8080/app
+http://localhost:8080/app/input
 
 Example user:
 user / password
