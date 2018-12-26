@@ -1,4 +1,4 @@
-SPRING BOOT + THYMELEAF + OAUTH2 + FACEBOOC
+SPRING BOOT + THYMELEAF + OAUTH2 + FACEBOOK
 ===========================================
 
 
@@ -22,4 +22,4 @@ Link to main UI:
 http://localhost:8080/app/input
 
 Example user:
-user / password
+Facebook credentials
