@@ -10,6 +10,16 @@ This project displays 'Hello World' message for user.
 User name is stored as system property.
 
 This app is secured by Facebook and OAuth2.
+
+Attention!!!
+Log out does not work.
+
+
+FACEBOOK
+--------
+
+Link to facebook OAuth2 configuration:
+https://developers.facebook.com
   
 
 USAGE
