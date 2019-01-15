@@ -21,6 +21,12 @@
 	</properties>
 
 	<dependencies>
+	
+		<!-- Rest -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		</dependency>
     	
 		<!-- Spring Security -->
         <dependency>
