@@ -1,16 +1,20 @@
 server:
    servlet:
       context-path: /app
-
+      
+# Spring Security configuration
 security:
   oauth2:
     client:
-      clientId: 
-      clientSecret: 
-      accessTokenUri: https://graph.facebook.com/oauth/access_token
-      userAuthorizationUri: https://www.facebook.com/dialog/oauth
-      tokenName: oauth_token
-      authenticationScheme: query
+      clientId: 562538734501-5f40kbepodc3jre56nc1q9eb6cg71687.apps.googleusercontent.com
+      clientSecret: M3cmXeTIQwm8VuvpOde_VsKm
+      accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+      userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
       clientAuthenticationScheme: form
+      scope:
+        - openid
+        - email
+        - profile
     resource:
-      userInfoUri: https://graph.facebook.com/me
+      userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+      preferTokenInfo: true

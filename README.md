@@ -1,5 +1,5 @@
-SPRING BOOT + THYMELEAF + OAUTH2 + FACEBOOK
-===========================================
+SPRING BOOT + THYMELEAF + OAUTH2 + GOOGLE
+=========================================
 
 
 DESCRIPTION
@@ -9,17 +9,17 @@ This is example project of usage Spring Boot + Thymeleaf.
 This project displays 'Hello World' message for user.
 User name is stored as system property.
 
-This app is secured by Facebook and OAuth2.
+This app is secured by Google and OAuth2.
 
 Attention!!!
 Log out does not work.
 
 
-FACEBOOK
+GOOGLE
 --------
 
-Link to facebook OAuth2 configuration:
-https://developers.facebook.com
+Link to google OAuth2 configuration:
+https://console.developers.google.com/apis/credentials?project=arched-memory-227613
   
 
 USAGE
