@@ -20,6 +20,7 @@ FACEBOOK
 
 Link to facebook OAuth2 configuration:
 https://developers.facebook.com
+Settings -> Basic -> Site URL -> http://localhost:8080/app
   
 
 USAGE
