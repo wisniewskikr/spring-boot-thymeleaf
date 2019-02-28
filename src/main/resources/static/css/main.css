@@ -62,6 +62,15 @@
 	border-radius: .5em;
 }
 
+.button {
+	color: white;
+	border: 1px solid #5F5F5F;
+	background: #5F5F5F;
+	font-weight: bold;
+	padding: 7px 9px 7px 9px;
+	border-radius: .5em;
+}
+
 .error {
 	color: red;
 	float: right;
@@ -69,10 +78,6 @@
 
 .image {
 	text-align: center;
-}
-
-.header {
-	padding-bottom: 20px;
 }
 
 .header div {

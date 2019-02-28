@@ -20,7 +20,7 @@
 	
 		<div class="header">
 			<div th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</div>
-		    <button id="logout" onclick="javascript:logout();" class="buttons">Sign Out</button>
+		    <button id="logout" onclick="javascript:logout();" class="button">Sign Out</button>
 	    </div>
 	    
 		<form method="post" action="#" th:action="@{/input/handle-button-ok}">
