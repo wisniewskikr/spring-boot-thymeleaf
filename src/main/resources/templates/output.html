@@ -19,7 +19,7 @@
 	<div class="page">
 	
 		<div class="header">
-			<div th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</div>
+			<div th:inline="text" id="userId" th:name="userId"></div>
 		    <button id="logout" onclick="javascript:logout();" class="button">Sign Out</button>
 	    </div>
 	    

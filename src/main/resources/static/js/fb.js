@@ -11,9 +11,12 @@ window.fbAsyncInit = function() {
 	});
 
 	FB.getLoginStatus(function(response) {
-		  if (response.status != 'connected' && loginPage != window.location) {
-			  window.location = loginPage;  
-		  }
+		if (response.status == 'connected') {
+			$('#userId').html(response.authResponse.userID);
+		}
+		if (response.status != 'connected' && loginPage != window.location) {
+			window.location = loginPage;  
+		}
 	});
 
 	FB.Event.subscribe('auth.login', function(){
@@ -22,7 +25,7 @@ window.fbAsyncInit = function() {
 		}
 		
 		window.location = initPage;
-    });
+    });	
 
 };
   
@@ -38,4 +41,4 @@ function logout() {
     js = d.createElement(s); js.id = id;
     js.src = "https://connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));  
+}(document, 'script', 'facebook-jssdk'));
