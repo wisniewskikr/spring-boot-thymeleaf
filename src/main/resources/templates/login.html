@@ -1,17 +1,32 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<title>Facebook Login JavaScript Example</title>
-<script type="text/javascript" th:inline="javascript" th:src="@{/js/fb.js}"></script>
-<meta charset="UTF-8">
-
-
+	<title>Login</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+	<link rel="stylesheet" th:href="@{/css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css}"
+		href="../../css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css" />	
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/jquery-1.9.1.js}"></script>
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/jquery-ui-1.10.3.custom.js}"></script>
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/script.js}"></script>	
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/fb.js}"></script>
 </head>
-<body>
 
-Test
-<fb:login-button perms="email,publish_stream" autologoutlink="window.location.href='/tmp';"></fb:login-button>
-
-
+<body>	
+	
+	<div class="page">
+	
+		<div id="title" class="title">
+			<h2>Hello World</h2></div>
+		<div id="subtitle" class="subtitle"><h3>Page: Login</h3></div>
+		<div id="buttons" class="buttons">
+			<fb:login-button perms="email,publish_stream" autologoutlink="window.location.href='/tmp';"></fb:login-button>
+		</div>
+			
+	</div>
+	
 </body>
+
 </html>
