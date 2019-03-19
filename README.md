@@ -1,4 +1,4 @@
-SPRING BOOT + THYMELEAF + OAUTH2 + GOOGLE
+SPRING BOOT + THYMELEAF + OAUTH2 + GITHUB
 =========================================
 
 
@@ -9,17 +9,17 @@ This is example project of usage Spring Boot + Thymeleaf.
 This project displays 'Hello World' message for user.
 User name is stored as system property.
 
-This app is secured by Google and OAuth2.
+This app is secured by Github and OAuth2.
 
 Attention!!!
 Log out does not work.
 
 
-GOOGLE
---------
+GITHUB
+------
 
 Link to google OAuth2 configuration:
-https://console.developers.google.com/apis/credentials?project=arched-memory-227613
+https://github.com/settings/developers
   
 
 USAGE
