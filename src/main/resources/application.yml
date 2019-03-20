@@ -6,10 +6,9 @@ server:
 security:
   oauth2:
     client:
-      clientId: 
-      clientSecret: 
-      accessTokenUri: https://github.com/login/oauth/access_token
-      userAuthorizationUri: https://github.com/login/oauth/authorize
-      clientAuthenticationScheme: form
+       clientId: 
+       clientSecret: 
+       accessTokenUri: https://www.linkedin.com/oauth/v2/accessToken
+       userAuthorizationUri: https://www.linkedin.com/oauth/v2/authorization
     resource:
-      userInfoUri: https://api.github.com/user
+       userInfoUri: https://api.linkedin.com/v1/people/~?format=json

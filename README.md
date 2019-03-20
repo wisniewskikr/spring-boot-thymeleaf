@@ -1,5 +1,5 @@
-SPRING BOOT + THYMELEAF + OAUTH2 + GITHUB
-=========================================
+SPRING BOOT + THYMELEAF + OAUTH2 + LINKEDIN
+===========================================
 
 
 DESCRIPTION
@@ -9,17 +9,17 @@ This is example project of usage Spring Boot + Thymeleaf.
 This project displays 'Hello World' message for user.
 User name is stored as system property.
 
-This app is secured by Github and OAuth2.
+This app is secured by LinkedIn and OAuth2.
 
 Attention!!!
-Log out does not work.
+It does not work.
 
 
-GITHUB
+LINKEDIN
 ------
 
-Link to google OAuth2 configuration:
-https://github.com/settings/developers
+Link to LinkedIn OAuth2 configuration:
+https://www.linkedin.com/developers/
   
 
 USAGE
@@ -32,4 +32,4 @@ Link to main UI:
 http://localhost:8080/app
 
 Example user:
-Facebook credentials
+LinkedIn credentials
