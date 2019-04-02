@@ -1,4 +1,4 @@
-package org.baeldung.security;
+package pl.kwi.springboot.security;
 
 import java.util.Arrays;
 

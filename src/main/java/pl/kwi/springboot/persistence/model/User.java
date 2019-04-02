@@ -1,4 +1,4 @@
-package org.baeldung.persistence.model;
+package pl.kwi.springboot.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

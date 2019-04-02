@@ -1,7 +1,8 @@
-package org.baeldung.persistence.dao;
+package pl.kwi.springboot.persistence.dao;
 
-import org.baeldung.persistence.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import pl.kwi.springboot.persistence.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 

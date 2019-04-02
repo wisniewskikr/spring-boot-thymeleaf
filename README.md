@@ -33,3 +33,5 @@ http://localhost:8080/input
 
 Example user:
 Facebook credentials
+or
+john / 123

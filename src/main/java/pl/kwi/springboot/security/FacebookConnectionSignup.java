@@ -1,13 +1,14 @@
-package org.baeldung.security;
+package pl.kwi.springboot.security;
 
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 
-import org.baeldung.persistence.dao.UserRepository;
-import org.baeldung.persistence.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.stereotype.Service;
+
+import pl.kwi.springboot.persistence.dao.UserRepository;
+import pl.kwi.springboot.persistence.model.User;
 
 @Service
 public class FacebookConnectionSignup implements ConnectionSignUp {

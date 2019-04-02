@@ -1,4 +1,4 @@
-package org.baeldung.config;
+package pl.kwi.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,8 +7,8 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories("org.baeldung.persistence.dao")
-@EntityScan("org.baeldung.persistence.model")
+@EnableJpaRepositories("pl.kwi.springboot.persistence.dao")
+@EntityScan("pl.kwi.springboot.persistence.model")
 public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
