@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
         .csrf().disable()
         .authorizeRequests()
-        .antMatchers("/login*","/signin/**","/signup/**", "/css/**", "/js/**").permitAll()
+        .antMatchers("/login*","/signin/**","/signup/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .formLogin().loginPage("/login").permitAll()
@@ -54,7 +54,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     } // @formatter:on
 
     @Bean
-    // @Primary
     public ProviderSignInController providerSignInController() {
         ((InMemoryUsersConnectionRepository) usersConnectionRepository).setConnectionSignUp(facebookConnectionSignup);
         return new ProviderSignInController(connectionFactoryLocator, usersConnectionRepository, new FacebookSignInAdapter());
