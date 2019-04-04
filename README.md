@@ -11,9 +11,6 @@ User name is stored as system property.
 
 This app is secured by Facebook and OAuth2.
 
-Attention!!!
-Log out does not work.
-
 
 FACEBOOK
 --------
@@ -33,5 +30,3 @@ http://localhost:8080/input
 
 Example user:
 Facebook credentials
-or
-john / 123
