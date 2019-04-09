@@ -27,12 +27,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        
-        <!-- Spring WebMVC -->
-        <dependency>
- 			<groupId>org.springframework</groupId>
-  			<artifactId>spring-webmvc</artifactId>
-		</dependency>
 		
 		<!-- Thymeleaf dependencies -->
 		<dependency>
@@ -54,22 +48,16 @@
 			<optional>true</optional>
 		</dependency>
 		
-		<!-- NEW -->
+		<!-- Spring Starter Web -->
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 		
+		<!-- Spring Social Facebook -->
 		<dependency>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-facebook</artifactId>
-            <version>2.0.3.RELEASE</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.3.2</version>
         </dependency>
         
 	</dependencies>
