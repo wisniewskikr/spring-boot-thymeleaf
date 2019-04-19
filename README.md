@@ -26,7 +26,7 @@ To run project run class:
 Application.java
 
 Link to main UI:
-http://localhost:8080/input
+http://localhost:8080
 
 Example user:
 Facebook credentials

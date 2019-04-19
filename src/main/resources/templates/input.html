@@ -19,7 +19,10 @@
 	
 		<div class="header">
 			<div th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</div>
-			<a th:href="@{/logout}">Logout</a>
+			<form method="POST" th:action="@{/logout}">
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+                <button>Logout</button>
+            </form>
 	    </div>
 	    
 		<form method="post" action="#" th:action="@{/input/handle-button-ok}">
