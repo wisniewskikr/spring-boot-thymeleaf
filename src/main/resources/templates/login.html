@@ -1,31 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Spring Social Login</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-</head>
-<body>
-	<div class="container">
-		<div th:if="${param.logout}" class="alert alert-info">You have been logged out</div>
-		<div th:if="${param.error}" class="alert alert-danger">There was an error, please try again</div>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 
-		<h1 class="col-sm-12">Login</h1>
-		
-		<div class="col-sm-12">
-	        <table style="border-collapse: separate; border-spacing: 2px">
-                <tr>
-                    <td></td>
-                    <td><a th:href="@{/auth/facebook}" class="ml btn btn-block btn-social btn-sm btn-facebook"><i class="fa fa-facebook"></i>Facebook</a></td>
-                </tr>
-                <tr>
-                    <td><a th:href="@{/auth/github}" class="ml btn btn-block btn-social btn-sm btn-github"><i class="fa fa-github"></i>Github</a></td>
-                    <td><a th:href="@{/auth/google(scope='profile')}" class="ml btn btn-block btn-social btn-sm btn-google-plus"><i class="fa fa-google-plus"></i>Google+</a></td>
-                </tr>
-            </table>
+<head>
+	<title>Login</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+	<link rel="stylesheet" th:href="@{/css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css}"
+		href="../../css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css" />	
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/jquery-1.9.1.js}"></script>
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/jquery-ui-1.10.3.custom.js}"></script>
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/script.js}"></script>			
+</head>
+
+<body>
+	
+	<div class="page">
+	
+		<div id="title" class="title">
+			<h2>Hello World</h2>
+		</div>
+		<div id="subtitle" class="subtitle">
+			<h3>Page: Login</h3>
 		</div>
 		
+		<a th:href="@{/auth/facebook}" class="ml btn btn-block btn-social btn-sm btn-facebook"><i class="fa fa-facebook"></i>Facebook</a>
+		<a th:href="@{/auth/github}" class="ml btn btn-block btn-social btn-sm btn-github"><i class="fa fa-github"></i>Github</a>
+		<a th:href="@{/auth/google(scope='profile')}" class="ml btn btn-block btn-social btn-sm btn-google-plus"><i class="fa fa-google-plus"></i>Google+</a>
 		
 	</div>
+		
 </body>
+
 </html>
