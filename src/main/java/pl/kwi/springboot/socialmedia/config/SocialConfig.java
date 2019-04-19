@@ -3,7 +3,6 @@ package pl.kwi.springboot.socialmedia.config;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 import org.springframework.social.github.connect.GitHubConnectionFactory;
 import org.springframework.social.google.connect.GoogleConnectionFactory;
-import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -41,9 +40,6 @@ public class SocialConfig implements SocialConfigurer {
         connectionFactoryConfigurer.addConnectionFactory(new FacebookConnectionFactory(
             environment.getProperty("tmp.facebook.appId"),
             environment.getProperty("tmp.facebook.appSecret")));
-        connectionFactoryConfigurer.addConnectionFactory(new LinkedInConnectionFactory(
-            environment.getProperty("tmp.linkedin.appId"),
-            environment.getProperty("tmp.linkedin.appSecret")));
         connectionFactoryConfigurer.addConnectionFactory(new GoogleConnectionFactory(
             environment.getProperty("tmp.google.appId"),
             environment.getProperty("tmp.google.appSecret")));
