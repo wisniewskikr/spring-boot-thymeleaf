@@ -38,14 +38,14 @@ public class SocialConfig implements SocialConfigurer {
     public void addConnectionFactories(ConnectionFactoryConfigurer connectionFactoryConfigurer, Environment environment) {
     	
         connectionFactoryConfigurer.addConnectionFactory(new FacebookConnectionFactory(
-            environment.getProperty("tmp.facebook.appId"),
-            environment.getProperty("tmp.facebook.appSecret")));
+            environment.getProperty("facebook.appId"),
+            environment.getProperty("facebook.appSecret")));
         connectionFactoryConfigurer.addConnectionFactory(new GoogleConnectionFactory(
-            environment.getProperty("tmp.google.appId"),
-            environment.getProperty("tmp.google.appSecret")));
+            environment.getProperty("google.appId"),
+            environment.getProperty("google.appSecret")));
         connectionFactoryConfigurer.addConnectionFactory(new GitHubConnectionFactory(
-            environment.getProperty("tmp.github.appId"),
-            environment.getProperty("tmp.github.appSecret")));
+            environment.getProperty("github.appId"),
+            environment.getProperty("github.appSecret")));
 
     }
 
