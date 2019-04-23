@@ -1,6 +1,6 @@
 .page {
-	width: 350px;
-	height: 250px;
+	width: 400px;
+	height: 400px;
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -85,4 +85,8 @@
 
 .alert-error {
 	color: red;
+}
+
+.form, .tmp {
+    display: inline-block;
 }
