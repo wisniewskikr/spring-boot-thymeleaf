@@ -87,6 +87,15 @@
 	color: red;
 }
 
-.form, .tmp {
+.header-form, .header-text {
     display: inline-block;
+}
+
+.header-form button {
+	color: white;
+	border: 1px solid #5F5F5F;
+	background: #5F5F5F;
+	font-weight: bold;
+	padding: 7px 9px 7px 9px;
+	border-radius: .5em;
 }
