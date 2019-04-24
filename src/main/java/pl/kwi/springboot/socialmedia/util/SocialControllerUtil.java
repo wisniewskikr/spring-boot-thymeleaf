@@ -3,8 +3,6 @@ package pl.kwi.springboot.socialmedia.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
@@ -17,12 +15,7 @@ import pl.kwi.springboot.socialmedia.model.UserProfile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -38,46 +31,10 @@ public class SocialControllerUtil {
     private static final String USER_PROFILE = "MY_USER_PROFILE";
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
-
-    @Autowired
     private DataDao dataDao;
 
     @Autowired
     private UsersDao usersDao;
-
-    public void dumpDbInfo() {
-        try {
-            Connection c = jdbcTemplate.getDataSource().getConnection();
-            DatabaseMetaData md = c.getMetaData();
-            ResultSet rs = md.getTables(null, null, "%", null);
-            while (rs.next()) {
-                if (rs.getString(4).equalsIgnoreCase("TABLE")) {
-
-                    LOG.debug("TABLE NAME = " + rs.getString(3) + ", Cat = " + rs.getString(1) + ", Schema = " + rs.getString(2) + ", Type = " + rs.getString(4));
-
-                    String tableName = rs.getString(3);
-                    List<String> sl = jdbcTemplate.query("select * from " + tableName,
-                        new RowMapper<String>() {
-                            public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-                            StringBuffer sb = new StringBuffer();
-                            for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                                sb.append(rs.getString(i)).append(' ');
-                            }
-                            return sb.toString();
-                            }
-                        });
-                    LOG.debug("No of rows: {}", sl.size());
-                    for (String s: sl) {
-                        LOG.debug(s);
-                    }
-                }
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void setModel(HttpServletRequest request, Principal currentUser, Model model) {
 
