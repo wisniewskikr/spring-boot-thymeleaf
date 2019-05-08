@@ -14,20 +14,21 @@
 	<form method="post" action="#" th:action="@{/input/handle-button-ok}">
 		<div class="container">
 			<div id="title"><h2>Hello World</h2></div>
-			<div id="subtitle"><h3>Page: Input</h3></div>
-			<div id="content">
-				<div>
-					<div>Name *</div>
-					<div><input type="text" id="name" name="name"/></div>
-					<div>Type your name here</div>
-				</div>
-				
-			</div>
-			<div id="buttons">
-				<input type="submit" id="ok" name="ok" value="OK" title="Go to next page"/>
-			</div>
+			<div id="subtitle"><h3>Page: Input</h3></div>		
+			<div class="form-group">
+		    	<label for="name">Name</label>
+		    	<input type="text" class="form-control" id="name" name="name"/>
+		    	<span class="help-block">Type your name here</span>
+		    </div>				
+			<input type="submit" class="btn btn-default" id="ok" name="ok" value="OK" data-toggle="tooltip" data-placement="bottom" title="Go to next page"/>
 		</div>
-	</form>	
+	</form>
+	
+	<script>
+		$(document).ready(function(){
+		  $('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>	
 
 </body>
 </html>
