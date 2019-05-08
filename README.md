@@ -1,5 +1,5 @@
-SPRING BOOT + THYMELEAF (HELLO WORLD)
-=====================================
+SPRING BOOT + THYMELEAF + BOOTSTRAP
+===================================
 
 
 DESCRIPTION
@@ -8,6 +8,8 @@ DESCRIPTION
 This is example project of usage Spring Boot + Thymeleaf.
 This project displays 'Hello World' message for user.
 User name is stored as system property.
+
+Html styles are handled by Bootstrap.
   
 
 USAGE
