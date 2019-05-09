@@ -15,11 +15,13 @@
 		<div class="container">
 			<div id="title"><h2>Hello World</h2></div>
 			<div id="subtitle"><h3>Page: Output</h3></div>
-			<div>
-				<div>&nbsp;</div>
-				<div id="name"> <span>Hello World</span> <b th:text="*{name}"></b> </div>
-				<div><img id="duke" alt="duke" th:src="@{/images/duke.jpg}"/></div>
-			</div>				
+			
+			<div class="panel panel-default">
+			    <div class="panel-body"> <span>Hello World</span> <b th:text="*{name}"></b> </div>
+			</div>
+			<img id="duke" alt="duke" th:src="@{/images/duke.jpg}"/>
+			<div>&nbsp;</div>
+							
 			<input type="submit" class="btn btn-default" id="back" name="back" value="Back" data-toggle="tooltip" data-placement="bottom" title="Go back to previous page"/>
 		</div>
 	</form>
