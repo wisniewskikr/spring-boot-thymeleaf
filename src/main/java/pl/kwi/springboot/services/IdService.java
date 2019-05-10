@@ -5,14 +5,14 @@ import java.util.Properties;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NameService {
+public class IdService {
 	
 	
-	private static final String NAME_PROP = "name";
+	private static final String ID_PROP = "id";
 	private Properties props;
 
 	
-	public NameService(){		
+	public IdService(){		
 		props = System.getProperties();
 	}
 
@@ -20,19 +20,19 @@ public class NameService {
 	/**
 	 * Method saves name to system properties.
 	 * 
-	 * @param name object String with name
+	 * @param id object String with id
 	 */
-	public void save(String name){
-		props.setProperty(NAME_PROP, name);
+	public void save(String id){
+		props.setProperty(ID_PROP, id);
 	}
 	
 	/**
 	 * Method loads name from system properties.
 	 * 
-	 * @return object String with name
+	 * @return object String with id
 	 */
 	public String load() {
-		return props.getProperty(NAME_PROP);
+		return props.getProperty(ID_PROP);
 	}
 	
 	

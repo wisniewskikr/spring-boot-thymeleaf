@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import pl.kwi.springboot.commands.OutputCommand;
-import pl.kwi.springboot.services.NameService;
+import pl.kwi.springboot.db.entities.UserEntity;
+import pl.kwi.springboot.db.repositories.UserRepository;
+import pl.kwi.springboot.services.IdService;
 
 
 @Controller
@@ -16,12 +18,16 @@ public class OutputController{
 	
 	
 	@Autowired
-	private NameService nameService;
+	private IdService idService;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	
 	@RequestMapping
 	public String displayPage(@ModelAttribute("command")OutputCommand command){
-		command.setName(nameService.load());
+		UserEntity userEntity = userRepository.findOne(Long.valueOf(idService.load()));
+		command.setName(userEntity.getName());
 		return "output";
 	}
 	

@@ -1,4 +1,4 @@
-SPRING BOOT + THYMELEAF (HELLO WORLD)
+SPRING BOOT + THYMELEAF + DB EMBEDDED
 =====================================
 
 
@@ -7,7 +7,7 @@ DESCRIPTION
 
 This is example project of usage Spring Boot + Thymeleaf.
 This project displays 'Hello World' message for user.
-User name is stored as system property.
+User name is stored in embedded DB.
   
 
 USAGE
