@@ -7,20 +7,33 @@
 	<artifactId>spring-boot-thymeleaf</artifactId>	
 	<version>0.0.1</version>
 	<packaging>war</packaging>
-
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.6.RELEASE</version>
-		<relativePath /> 
-	</parent>
-
+	<name>spring-boot-thymeleaf</name>
+	
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.4.RELEASE</version>
+		<relativePath /> 
+	</parent>	
+
 	<dependencies>
     	
+		<!-- Spring Web dependencies -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
+		</dependency>
+		
+		<!-- Spring Web MVC dependencies -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-webmvc</artifactId>
+		</dependency>
+		
 		<!-- Thymeleaf dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -40,8 +53,9 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
-	</dependencies>
 		
+	</dependencies>
+				
 	<build>
 		<plugins>
 			<!-- Package as an executable jar/war -->
